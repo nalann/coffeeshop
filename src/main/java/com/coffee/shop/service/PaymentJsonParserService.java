@@ -1,5 +1,6 @@
 package com.coffee.shop.service;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -15,7 +16,9 @@ public class PaymentJsonParserService {
 		ArrayList<Payment> payments = new ArrayList<Payment>();
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader("src/main/resources/payments.json"));
+			File currentDirFile = new File("json-resources");
+			String helper = currentDirFile.getAbsolutePath();
+			Object obj = parser.parse(new FileReader(helper + "/payments.json"));
 			JSONArray paymentList = (JSONArray) obj;
 			paymentList.forEach(payment -> payments.add(parsePaymentObject((JSONObject) payment)));
 		}

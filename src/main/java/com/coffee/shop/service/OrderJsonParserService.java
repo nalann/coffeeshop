@@ -1,5 +1,6 @@
 package com.coffee.shop.service;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 
@@ -11,11 +12,14 @@ import com.coffee.shop.model.Order;
 
 public class OrderJsonParserService {
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Order> orderParser() {
 		ArrayList<Order> orders = new ArrayList<Order>();
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader("src/main/resources/orders.json"));
+			File currentDirFile = new File("json-resources");
+			String helper = currentDirFile.getAbsolutePath();
+			Object obj = parser.parse(new FileReader(helper + "/orders.json"));
 			JSONArray orderList = (JSONArray) obj;
 			orderList.forEach(order -> orders.add(parseOrderObject((JSONObject) order)));
 		}
