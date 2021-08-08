@@ -1,5 +1,6 @@
 package com.coffee.shop.service;
 
+import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
 
@@ -16,7 +17,9 @@ public class ProductJsonParserService {
 		HashMap<String, HashMap<String, Double>> products = new HashMap<String, HashMap<String, Double>>();
 		JSONParser parser = new JSONParser();
 		try {
-			Object obj = parser.parse(new FileReader("src/main/resources/products.json"));
+			File currentDirFile = new File("json-resources");
+			String helper = currentDirFile.getAbsolutePath();
+			Object obj = parser.parse(new FileReader(helper + "/products.json"));
 			JSONArray productList = (JSONArray) obj;
 			productList.forEach(product -> {
 				Product x = parseProductObject((JSONObject) product);
