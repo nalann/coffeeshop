@@ -22,8 +22,8 @@ Install java 1.8 [https://www.oracle.com/tr/java/technologies/javase/javase-jdk8
 
 	java -jar CoffeeShopApp-0.0.1-SNAPSHOT.jar
 	
-**NOTE-1: ** After run these script, you should see the response
+**NOTE-1:** After run these script, you should see the response
 
-**NOTE-2: ** You can change the resources files based on current data structure to test.
+**NOTE-2:** You can change the resources files based on current data structure to test.
 
-**NOTE-3: ** You can find backup of resources under the json-resources folder in the main project structure.
+**NOTE-3:** You can find backup of resources under the json-resources folder in the main project structure.
